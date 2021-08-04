@@ -91,7 +91,6 @@ const resolvers = {
           { _id: customerId },
           { $addToSet: { boxes: boxId } },
           {
-            new: true,
             runValidators: true,
           }
         );
