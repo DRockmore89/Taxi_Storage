@@ -6,12 +6,12 @@ import CustomerPortal from './pages/CustomerPortal';
 import OperationsPortal from './pages/OperationsPortal';
 import Navbar from './components/navbar';
 
-// Construct our main GraphQL API endpoint
+// construct GraphQL API endpoint
 const httpLink = createHttpLink({
   uri: '/graphql',
 });
 
-// Construct request middleware that will attach the JWT token to every request as an `authorization` header
+
 const authLink = setContext((_, { headers }) => {
   // get the authentication token from local storage if it exists
   const token = localStorage.getItem('id_token');
@@ -25,17 +25,8 @@ const authLink = setContext((_, { headers }) => {
 });
 
 const client = new ApolloClient({
-  // uri: '/graphql',
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
-  request: operation => {
-    const token = localStorage.getItem('id_token');
-    operation.setContext({
-      headers: {
-        authorization: token ? `Bearer ${token}` : ''
-      }
-    });
-  },
 });
 
 function App() {

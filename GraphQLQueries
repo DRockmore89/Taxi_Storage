@@ -1,12 +1,11 @@
 Feel free to use these for server testing at: http://localhost:3001/graphql
 
 
-
 mutation addCustomer {
   addCustomer (
-  firstName: "Beth", 
-  lastName: "Smith", 
-  email: "BS123@gmail.com", 
+  firstName: "Test", 
+  lastName: "McTestFace", 
+  email: "test@gmail.com", 
   password: "password123", 
   address: "123 Happy Street", 
   city: "Atlanta", 
@@ -31,7 +30,7 @@ mutation addCustomer {
 
 mutation login {
   login (
-    email: "maggie123@gmail.com"
+    email: "test@gmail.com"
     password: "password123") {
     token,
     customer {
@@ -40,6 +39,33 @@ mutation login {
     }
   }
 }
+
+
+mutation addBoxToCustomer {
+  addBoxToCustomer (customerId: "610af6d71b72e70c88bb8c9f", boxId:"60f767a1b681a220c070cf29" ) {
+    boxes {
+      _id
+    }
+  }
+}
+
+mutation addBoxToCustomer {
+  addBoxToCustomer (customerId: "610af6d71b72e70c88bb8c9f", boxId:"60f767a1b681a220c070cf29" ) {
+    boxes {
+      _id
+    }
+  }
+}
+
+mutation removeBoxFromCustomer {
+  removeBoxFromCustomer (customerId: "610af6d71b72e70c88bb8c9f", boxId:"60f767a1b681a220c070cf29" ) {
+    boxes {
+      _id
+    }
+  }
+}
+
+
 
 mutation createBox {
   createBox (
@@ -115,8 +141,12 @@ query Me {
 query boxes {
   boxes {
     _id
+    boxSize
+    sendToCustomer
+    getFromCustomer
   }
 }
+
 
 
 
