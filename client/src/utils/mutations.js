@@ -39,15 +39,12 @@ export const CREATE_BOX = gql`
   `
 
 export const ADD_BOX_TO_CUSTOMER = gql`
-mutation addBoxToCustomer($customerId: String!, $boxId: String!) {
+mutation addBoxToCustomer($customerId: String!, $boxId: ID!) {
   addBoxToCustomer(customerId: $customerId, boxId: $boxId) {
     Customer {
         _id
         boxes {
           _id
-          boxSize
-          sendToCustomer
-          getFromCustomer
         }
       }
     }
@@ -55,15 +52,12 @@ mutation addBoxToCustomer($customerId: String!, $boxId: String!) {
   `
 
   export const REMOVE_BOX_FROM_CUSTOMER = gql`
-  mutation removeBoxFromCustomer($customerId: String!, $boxId: String!) {
+  mutation removeBoxFromCustomer($customerId: String!, $boxId: ID!) {
     removeBoxFromCustomer(customerId: $customerId, boxId: $boxId) {
       Customer {
         _id
         boxes {
           _id
-          boxSize
-          sendToCustomer
-          getFromCustomer
         }
       }
     }

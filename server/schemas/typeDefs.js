@@ -61,7 +61,7 @@ const typeDefs = gql`
 
     createBox(boxSize: String!, sendToCustomer: Boolean!, getFromCustomer: Boolean!): Box
 
-    addBoxToCustomer(customerId: ID!, boxId: ID!, boxSize: String, sendToCustomer: Boolean, getFromCustomer: Boolean): Customer
+    addBoxToCustomer(customerId: ID!, boxId: ID!): Customer
 
     removeBoxFromCustomer(customerId: ID!, boxId: ID!): Customer
 

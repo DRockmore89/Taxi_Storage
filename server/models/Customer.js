@@ -2,7 +2,7 @@ const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 const Box = require('./Box');
 
-// to be expanded
+
 
 const customerSchema = new Schema({
   firstName: {
